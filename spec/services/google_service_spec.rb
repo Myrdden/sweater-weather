@@ -8,8 +8,6 @@ RSpec.describe GoogleService do
     expect(location[:lng]).to eq(-104.990251)
 
     response_file = File.expand_path '../../responses/geocode_denver.json', __FILE__
-    File.open(response_file, 'w') do |file|
-      file << location.to_json
-    end
+    File.write(response_file, location.to_json)
   end
 end
