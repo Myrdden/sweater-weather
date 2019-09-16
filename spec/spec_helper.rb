@@ -1,6 +1,6 @@
 ENV['SINATRA_ENV'] = 'test'
 
-require 'sweater_weather'
+require File.expand_path '../../sweater_weather.rb', __FILE__
 
 RSpec.configure do |c|
   c.include Rack::Test::Methods
