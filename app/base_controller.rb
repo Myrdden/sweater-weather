@@ -18,6 +18,6 @@ class BaseController < Sinatra::Base
   end
 
   get '/api/v1/road_trip' do
-
+    binding.pry
   end
 end
