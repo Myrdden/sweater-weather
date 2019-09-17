@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   def create_key
     self.update(api_key: SecureRandom.hex)
   end
+
+  def self.validate(key)
+    User.where(api_key: key).exists?
+  end
 end

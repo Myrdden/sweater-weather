@@ -10,13 +10,13 @@ class GoogleService
     parse(response)[:results][0][:geometry][:location]
   end
 
-  def self.travel_time(origin, destination)
+  def self.travel_time(route)
     response = Faraday.get(DIRECTIONS_URL) do |request|
       request.params['key'] = ENV['GOOGLE_API_KEY']
-      request.params['origin'] = origin
-      request.params['destination'] = destination
+      request.params['origin'] = route[:origin]
+      request.params['destination'] = route[:destination]
     end
-    parse(response)[:routes][0][:legs][0][:duration]
+    parse(response)[:routes][0][:legs][0][:duration][:value]
   end
 
   private
