@@ -14,5 +14,8 @@ RSpec.describe DarkskyService do
     expected_keys = [:latitude, :longitude, :timezone, :currently, :minutely, :hourly, :daily, :flags, :offset]
     forecast = DarkskyService.get_forecast(location)
     expect(forecast.keys).to eq(expected_keys)
+
+    forecast_file = File.expand_path '../../responses/forcast_denver.json', __FILE__
+    File.write(forecast_file, forecast.to_json)
   end
 end
