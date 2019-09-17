@@ -1,5 +1,4 @@
 class GoogleService
-  #https://maps.googleapis.com/maps/api/geocode/json?address=#{city},#{state}
   GEOCODING_URL = 'https://maps.googleapis.com/maps/api/geocode/json'
 
   def self.geocode(location)

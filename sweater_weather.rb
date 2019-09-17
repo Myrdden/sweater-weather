@@ -9,6 +9,7 @@ end
 
 require 'bundler/setup'
 require 'sinatra/base'
+require 'sinatra/activerecord'
 Bundler.require :default, ENV['SINATRA_ENV']
 
 require_all 'app'

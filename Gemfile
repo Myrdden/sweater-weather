@@ -7,7 +7,9 @@ gem 'faraday'
 gem 'pry'
 
 gem 'sinatra-activerecord'
+gem 'pg'
 gem 'rake'
+gem 'bcrypt'
 
 group :test do
   gem 'rack-test', require: 'rack/test'
