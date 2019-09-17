@@ -5,7 +5,7 @@ class UnsplashService
       request.params['orientation'] = 'landscape'
       request.params['location'] = "#{location} city"
     end
-    parse(response)
+    parse(response)[:urls][:full]
   end
 
   private
