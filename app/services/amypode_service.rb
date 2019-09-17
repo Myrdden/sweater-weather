@@ -7,7 +7,7 @@ class AmypodeService
       request.params['long'] = lng
       request.headers['api_key'] = ENV['AMYPODE_API_KEY']
     end
-    parse(response)
+    parse(response)[:data][:attributes]
   end
 
   private

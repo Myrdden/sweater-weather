@@ -13,6 +13,6 @@ class AntipodeSerializer
           }
         }
       ]
-    }.to_json
+    }
   end
 end
