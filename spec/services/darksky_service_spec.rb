@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe DarkskyService do
   it 'Forecasting' do
-    response_file = File.expand_path '../../responses/geocode_denver.json', __FILE__
+    response_file = File.expand_path '../../cache/geocode_denver.json', __FILE__
     response = JSON.parse(File.read(response_file), symbolize_names: true)
     if response[:lat] && response[:lng]
       location = response
@@ -15,7 +15,7 @@ RSpec.describe DarkskyService do
     forecast = DarkskyService.get_forecast(location)
     expect(forecast.keys).to eq(expected_keys)
 
-    forecast_file = File.expand_path '../../responses/forcast_denver.json', __FILE__
+    forecast_file = File.expand_path '../../cache/forcast_denver.json', __FILE__
     File.write(forecast_file, forecast.to_json)
   end
 end
