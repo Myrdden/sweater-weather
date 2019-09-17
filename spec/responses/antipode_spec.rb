@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 RSpec.describe 'api/v1/antipode' do
-  get 'api/v1/antipode?loc=hongkong'
+  def app; Sinatra::Application end
 
-  binding.pry
+  it 'works' do
+    get 'api/v1/antipode?loc=hongkong'
+
+    binding.pry
+  end
 end
