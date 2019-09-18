@@ -1,7 +1,7 @@
 class UsersController < Sinatra::Base
   post '/api/v1/users' do
     strong_params = ['email', 'password', 'password_confirmation']
-    body          = JSON.parse(request.body.read).symbolize_keys
+    body          = JSON.parse(request.body.read)
     user_params   = body.keep_if {|k,v| strong_params.include?(k)}
     user          = User.new(user_params)
 
@@ -14,8 +14,8 @@ class UsersController < Sinatra::Base
 
   post '/api/v1/sessions' do
     strong_params = ['email', 'password']
-    body          = JSON.parse(request.body.read).symbolize_keys
-    user_params   = body.keep_if {|k,v| strong_params.include?(k)}
+    body          = JSON.parse(request.body.read)
+    user_params   = body.keep_if {|k,v| strong_params.include?(k)}.symbolize_keys
     user          = User.find_by(email: user_params[:email])
 
     if user && user.authenticate(user_params[:password])
