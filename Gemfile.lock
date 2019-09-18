@@ -88,6 +88,3 @@ DEPENDENCIES
   shotgun
   sinatra-activerecord
   sinatra-contrib
-
-BUNDLED WITH
-   2.0.1
