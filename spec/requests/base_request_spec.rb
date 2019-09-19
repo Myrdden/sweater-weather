@@ -7,16 +7,15 @@ RSpec.describe 'Base Requests' do
     get 'api/v1/forecast', 'location' => 'denver,co'
 
     data = JSON.parse(last_response.body)
-    binding.pry
     expected_keys = ['lat', 'long', 'currently', 'hourly', 'daily']
-    expect(data[:data][:attributes][0].keys).to eq(expected_keys)
+    expect(data['data']['attributes'][0].keys).to eq(expected_keys)
   end
 
   it 'api/v1/background' do
     get 'api/v1/background', 'location' => 'denver,co'
 
     data = JSON.parse(last_response.body)
-    expect(data[:data][:attributes][0].keys).to eq(['url'])
+    expect(data['data']['attributes'][0].keys).to eq(['url'])
   end
 
   it 'api/v1/road_trip' do
