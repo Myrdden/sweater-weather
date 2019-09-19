@@ -1,20 +1,27 @@
 class BaseSerializer
-  def self.wrap(type, attributes)
+  def self.background(facade)
     {data: {
       id: '1',
-      type: type,
-      attributes: attributes
+      type: 'background',
+      attributes: [
+        {url: facade.background}
+      ]
       }
     }
   end
 
-  def self.darksky(forecast)
+  def self.darksky(facade)
     {data: {
       id: '1',
       type: 'forecast',
       attributes: [
-        forecast
-        ]
+        {lat: facade.lat,
+         long: facade.long,
+         currently: facade.currently,
+         hourly: facade.hourly,
+         daily: facade.daily
+        }
+      ]
       }
     }
   end
