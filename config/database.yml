@@ -11,3 +11,6 @@ production:
   <<: *default
   database: sweater_weather_production
 
+test:
+  <<: *default
+  database: sweater_weather_test

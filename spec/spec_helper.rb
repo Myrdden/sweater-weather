@@ -1,4 +1,4 @@
-ENV['SINATRA_ENV'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 require File.expand_path '../../sweater_weather.rb', __FILE__
 
