@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
-  after_initialize :create_key
+  after_create :create_key
   def create_key
     self.update(api_key: SecureRandom.hex)
   end
